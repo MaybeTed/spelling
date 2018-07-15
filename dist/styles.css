@@ -1,0 +1,363 @@
+
+
+/****************
+  GLOBAL STYLES */
+
+body, html {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+.app {
+  height: 100%;
+  width: 100%;
+}
+
+/******************
+    SPLASH PAGE  */
+
+.splash-page {
+  height: 100%;
+  width: 100%;
+}
+
+.splash-login-links {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  background: black;
+  color: cornflowerblue;
+  padding: 15px 40px;
+  text-align: center;
+}
+
+.splash-login-links h1:hover {
+  color: beige;
+}
+
+.splash-login-links h5 {
+  margin-bottom: 0;
+  color: gray;
+}
+
+.splash-page-intro {
+  width: 60%;
+  border: 1px solid black;
+  margin: 50px auto;
+  padding: 0 30px;
+  max-width: 235px;
+}
+
+.splash-page-intro h2 {
+  text-align: center;
+}
+
+.splash-page-quotes {
+  font-size: 2.5em;
+  margin: 50px auto;
+  text-align: center;
+}
+
+.splash-page-quotes span {
+  font-size: 0.5em;
+}
+
+.splash-page footer {
+  width: 100%;
+  height: 210px;
+  background: black;
+}
+
+.parallax {
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+.splash-img1 {
+  min-height: 100%;
+  background-image: url('/images/naturepath2.jpg');
+  position: relative;
+}
+
+.splash-img2 {
+  min-height: 400px;
+  background-image: url('/images/naturepath.jpg');
+  position: relative;
+}
+
+/***********************
+        NAV BAR       */
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 90px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  background: black;
+}
+
+.nav-space {
+  width: 100px;
+  height: 90px;
+}
+
+.nav-left img {
+  height: 70px;
+  margin-left: 10px;
+}
+
+.nav-right {
+  padding: 0 10px 0 0;
+}
+
+.nav-right div {
+  display: inline-block;
+  padding: 0 10px;
+}
+
+.nav-right span {
+  color: red;
+  cursor: pointer;
+}
+
+/***********************
+        REGISTER      */
+
+.register {
+  width: 90%;
+  margin: auto;
+  margin-top: 40px;
+}
+
+.error {
+  border: 1px solid red;
+  box-shadow: 0 0 3px #CC0000;
+}
+
+form label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+form input {
+  width: 100%;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #555;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+form p {
+  font-size: 12px;
+  color: red;
+}
+
+form button {
+  background-color: #337ab7;
+  padding: 4px 8px;
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.4;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+form button:hover {
+  background-color: #286090;
+}
+
+.registration-success {
+  background-color: #dff0d8;
+  border: 1px solid #d6e9c6;
+  color: #3c763d;
+  padding: 20px 15px;
+  font-size: 15px;
+}
+
+.registration-fail {
+  background-color: #f2dede;
+  border: 1px solid #ebccd1;
+  color: #a94442;
+  padding: 20px 15px;
+  font-size: 15px;
+}
+
+/********************
+        HOME       */
+
+
+.message {
+  text-align: center;
+  font-size: 28px;
+}
+
+.definition {
+  width: 90%;
+  min-height: 100px;
+  margin: auto;
+  background: beige;
+}
+
+.definition h4 {
+  margin: 10px 10px 0 10px;
+  padding: 10px 0 0 0;
+}
+
+.level-buttons {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  width: 40%;
+  margin: auto;
+}
+
+.choose-level h2 {
+  text-align: center;
+}
+
+.say-it-again {
+  margin-top: 35px;
+  margin-left: 5%;
+}
+
+.user-answer-form {
+  margin-left: 5%;
+}
+
+#userAnswer {
+  width: 300px;
+  margin: 10px 5px 10px 0;
+}
+
+.score-container {
+  margin-left: 10px;
+}
+
+
+/********************
+      PROFILE      */
+
+.profile header {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  vertical-align: center;
+  width: 100%;
+  height: 80px;
+  background: #65642833;
+  font-size: 1.3em;
+}
+
+.profile header h4 {
+  width: 200px;
+  text-align: center;
+}
+
+#easychart, #mediumchart, #hardchart {
+  width: 100%;
+  height: 350px;
+}
+
+.charts-container {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+}
+
+.charts-container .column {
+  width: 200px;
+}
+
+.key {
+  margin-top: 243px;
+}
+
+.green-key {
+  width: 20px;
+  height: 20px;
+  background: green;
+  color: green;
+}
+
+.red-key {
+  width: 20px;
+  height: 20px;
+  background: red;
+  color: red;
+}
+
+.column p {
+  margin-left: 64px;
+}
+
+/********************
+    LEADERBOARD   */
+
+.leaderboard h1 {
+  text-align: center;
+  margin-top: 60px;
+  text-shadow: 2px 2px gold;
+}
+
+.leaderboard table {
+  border: 1px solid black;
+  margin: auto;
+  margin-top: 10px;
+  padding: 25px;
+  font-size: 2em;
+  box-shadow: 10px 5px;
+}
+
+.leaderboard td {
+  text-shadow: 2px 2px gold;
+}
+
+.leaderboard-table-points {
+  padding-left: 25px;
+  text-align: right;
+  text-shadow: none !important;
+}
+
+.sort-options {
+  width: 200px;
+  margin: auto;
+  margin-top: 100px;
+}
+
+
+
+
