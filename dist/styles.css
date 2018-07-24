@@ -81,6 +81,10 @@ button {
   text-align: center;
 }
 
+.splash-page-quotes p {
+  padding: 70px 0;
+}
+
 .splash-page-quotes span {
   font-size: 0.5em;
 }
