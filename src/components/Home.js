@@ -51,10 +51,10 @@ class Home extends React.Component {
     const correctAnswer = this.state.currentWord.word;
     if (userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
       this.setState({ response: 'correct', currentWord: { definition: '' } });
-      this.save(true);
+      this.save(true, correctAnswer);
     } else {
       this.setState({ response: 'incorrect', currentWord: { definition: '' } });
-      this.save(false);
+      this.save(false, correctAnswer);
     }
     document.getElementById('userAnswer').value = '';
   }
@@ -78,11 +78,12 @@ class Home extends React.Component {
     this.setState({ currentWord: words[randomIndex] }, () => this.speak());
   }
 
-  save(correct) {
+  save(correct, word) {
       axios.post('/api/answer', {
         user: this.props.auth.user,
         correct,
-        level: this.state.level
+        level: this.state.level,
+        word
       }).then((response) => {
         Actions.fetchUser();
       })
