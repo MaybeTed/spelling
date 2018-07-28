@@ -1,4 +1,5 @@
 const User = require('./db/user');
+const Words = require('./db/words');
 const session = require('express-session');
 
 
@@ -75,9 +76,15 @@ module.exports = function(router) {
   });
 
   router.post('/answer', (req, res) => {
-    let { user, correct, level } = req.body;
+    let { user, correct, level, word } = req.body;
     user.score[level].attempts++;
     if (req.body.correct) {
+      Words.findOneAndUpdate({ word }, { $inc: { correct: 1 } }, function(err, results) {
+        if (err) throw err;
+        if (!results) {
+          createWordEntry(word, correct);
+        }
+      });
       user.score[level].correct++;
       if (level === 'Hard') {
         user.score[level].points += 100000;
@@ -86,7 +93,15 @@ module.exports = function(router) {
       } else if (level === 'Easy') {
         user.score[level].points++;
       }
+    } else { // set word: word
+      Words.findOneAndUpdate({ word }, { $inc: { incorrect: 1 } }, function(err, results) {
+        if (err) throw err;
+        if (!results) {
+          createWordEntry(word, correct);
+        }
+      });
     }
+
 
     User.findOneAndUpdate({ username: user.username}, { $set: { score: user.score }}, { new: true }, function(err, results) {
       if (err) throw err;
@@ -127,4 +142,21 @@ module.exports = function(router) {
   });
 
   return router;
+}
+
+function createWordEntry(word, correct) {
+  var item = new Words();
+  item.word = word;
+  if (correct) {
+    item.correct = 1;
+    item.incorrect = 0;
+  } else {
+    item.incorrect = 1;
+    item.correct = 0;
+  }
+  item.save(function(err) {
+    if (err) {
+      console.log('error: ', err);
+    }
+  });
 }
